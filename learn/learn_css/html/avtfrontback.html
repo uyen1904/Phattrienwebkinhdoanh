@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title> AVT Front and Back - Đào Thảo Uyên </title>
+    </head>
+    <style>
+        .image-container img 
+        {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        /* ảnh 2 chồng lên ảnh 1 nhưng ẩn đi */
+        .image-container img:nth-child(2)
+        {
+            position:absolute;
+            top:0;
+            left:0;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        /* khi hover thì ảnh 2 hiện ra */
+        .image-container:hover img:nth-child(2)
+        {
+            opacity: 1;
+        }
+        h3
+        {
+            color:pink;
+            align-items: center;
+        }
+    </style>
+    <body>
+        <h3> Di chuột vào để xem mặt trái của tui nhe  </h3>
+        <div class="image-container">
+            <img src="../html/img/z7064352365197_fc68aa6a1199dc10fbabc38f47392f8d.jpg">
+            <img src="../html/img/z7064353266722_3daf1039c9bd26b763f4c6d684024df2.jpg">
+        </div>
+    </body>
+</html>
