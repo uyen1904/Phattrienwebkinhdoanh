@@ -1,0 +1,25 @@
+#customer
+{
+    font-family: Arial;
+    width:100%;
+    border-collapse: collapse;
+}
+#customer td, #customer th
+{
+    font-size: 12pt;
+    border:1px solid #98bf21;
+    padding:3px 7px 2px 7px;
+}
+#customer th
+{
+    font-size: 1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color: #A7C942;
+    color: #ffffff;
+}
+#customer tbody tr:nth-child(even)
+{
+    background-color: #EAF2D3;
+}
