@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title> Table with Style Trigger - Đào Thảo Uyên </title>
+    </head>
+    <style type="text/css">
+        thead, tfoot
+        {
+            font-weight: bold;
+            background-color:rgb(0, 88, 143);
+            color:white;
+        }
+        tbody tr:nth-child(2n+1)
+        {
+            background-color: whitesmoke;
+        }
+        tbody tr:nth-child(2n)
+        {
+            background-color: rgb(253, 255, 190);
+        }
+        tbody tr:hover
+        {
+            background-color: pink;
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <table border="1" cellspacing="0" cellpadding="5" width="800">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Student ID</td>
+                    <td>Student Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>123456</td>
+                    <td>Albert Einstein</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>321232</td>
+                    <td>Niels Bohr</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>987544</td>
+                    <td>Stephen Hawking</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>359687</td>
+                    <td>Issac Newton</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>574878</td>
+                    <td>Nikola Tesla</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Designed by Yune</td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </body>
+</html>
