@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title> Online Classifieds Search Form - Đào Thảo Uyên </title>
+        <style>
+            body {
+            background-color: rgb(196, 229, 255);
+            font-family: 'Times New Roman', Times, serif;
+            }
+            .container {
+            width: 600px;
+            margin:auto;
+            background-color: rgb(160, 212, 255);
+            padding:20px;
+            border: 1px solid black;
+            border-radius: 15px;
+            }
+            .logo {
+            text-align: center;
+            }
+            h2,p {
+                text-align:left;
+            }
+            tr, td {
+            padding:5px;
+            }
+            .buttons {
+            text-align:center;
+            margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 style="color:red">Online Classifieds Search Form</h2>
+        <hr/>
+        <p><b>1) Search for a classified in the following sections:</b></p>
+        <table width="35%">
+            <tr>
+                <td>
+                    <input type="radio" name="b1" id="b1"/><label for="b1">Employment</label> 
+                    <br/>
+                    <input type="radio" name="b1" id="b2"/><label for="b2">For Sale</label>
+                    <br/>
+                    <input type="radio" name="b1" id="b3"/><label for="b3">Housing</label>
+                    <br/>
+                </td>
+                <td>
+                    <input type="radio" name="b1" id="b4"/><label for="b4">Personal</label>
+                    <br/>
+                    <input type="radio" name="b1" id="b5"/><label for="b5">Miscellanecus</label>
+                    <br/>
+                    <input type="radio" name="b1" id="b6"/><label for="b6">All of the above</label>
+                    <br/>
+                </td>
+            </tr>
+        </table>
+        <p><b>2) Search the following publications:</b></p>
+        <table width="70%">
+            <tr>
+                <td>
+                    <input type="checkbox" name="b1" id="b1"/><label for="b1">Midwest times</label>
+                    <br/>
+                    <input type="checkbox" name="b4" id="b2/><label for="b2">Great Lakes Classifieds</label>
+                    <br/>
+                </td>
+                <td>
+                    <input type="checkbox" name="b2" id="b3"/><label for="b3">Modern News</label>
+                    <br/>
+                    <input type="checkbox" name="b3" id="b4"/><label for="b4">Middleton Daily</label>
+                    <br/>
+                </td>
+                <td>
+                    <input type="checkbox" name="b3" id="b5"/><label for="b5">Employment Today</label>
+                    <br/>
+                    <input type="checkbox" name="b6" id="b6"/><label for="b6">Cashtown Daily News</label>
+                    <br/>
+                </td>
+            </tr>
+        </table>
+        <p><b>3) From </b><input type="date" name="date"><b> to </b> <input type="date" name="date"></p>
+        <p><b>4) Enter a keywords to describe the classified.</b> 
+            <br/>
+            <input type="text" name="text" style="width:65%;"></p>
+        <p><b>5) Click one of the options below:</b></p>
+        <button type="search" name="search" id="search">
+            <img src="../ex49/img/8726214_search_icon.png" width="50" height="50">
+        </button>
+        <button type="help" name="help" id="help">
+            <img src="../ex49/img/2799202_problem_solving_fixed_support_customer_icon.png" width="50" height="50">
+        </button>
+        <button type="cancel" name="cancel" id="cancel">
+            <img src="../ex49/img/9004828_cross_delete_remove_cancel_icon.png" width="50" height="50">
+        </button>
+    </body>
+</html>
