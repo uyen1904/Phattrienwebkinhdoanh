@@ -1,0 +1,17 @@
+<head>
+    <meta charset="utf-8"/>
+    <title>
+        <script>
+            function getUrlVars() {
+                var vars={}
+                var parts=window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+                    function (m,key,value) {
+                        var[key]=value;
+                    });
+                    return vars;
+            }
+            var ten=unescape(getUrlVars()["txtten"]);
+            var email=unescape(getUrlVars()["txtemail"]);
+        </script>
+    </title>
+</head>

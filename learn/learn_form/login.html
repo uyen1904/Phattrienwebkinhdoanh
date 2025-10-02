@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title> Login - Đào Thảo Uyên </title>
+    </head>
+    <body>
+    <!--cái này là trang để lấy thông tin, ví dụ khi login thành công thì nó sẽ nhảy qua trang trong ngoặc kép-->
+    <!--phương thức get sẽ làm lộ password-->
+        <form name="frm_login"
+              action="https://tranduythanh.com/contact/" 
+              method="get"
+                >
+                <fieldset>
+                    <legend>Login Information:</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="username">Use name:</label>
+                        <td>
+                            <input type="text" name="username" id="username"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td>
+                            <input type="password" name="password" id="password"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit" name="submit" id="submit">Login</button>
+                        </td>
+                    </tr>
+                </table>
+                </fieldset>
+        </form>
+    </body>
+</html>
