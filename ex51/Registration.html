@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Newborn Registration</title>
+          <style>
+            body 
+            {
+            background-color: #bfffff;
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            }
+            .container 
+            {
+            width: 600px;
+            margin: 20px auto;
+            border: 2px solid rgb(119, 118, 118);
+            padding: 20px;
+            background-color: #007f7f;
+            }
+            h1 
+            {
+            text-align: center;
+            color: orange;
+            text-shadow: 1px 1px #000;
+            margin-bottom: 0;
+            }
+            h2 
+            {
+            text-align: center;
+            color: white;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            }
+            hr 
+            {
+            border: 1px solid orange;
+            width: 80%;
+            margin: 5px auto 20px auto;
+            }
+            table 
+            {
+            width: 100%;
+            }
+            td 
+            {
+            padding: 5px;
+            }
+            input[type="text"],
+            input[type="date"],
+            select 
+            {
+            width: 150px;
+            }
+            select[multiple] 
+            {
+            width: 180px;
+            height: 60px;
+            }
+            .buttons 
+            {
+            text-align: center;
+            margin-top: 10px;
+            }
+            button 
+            {
+            margin: 3px;
+            padding: 3px 10px;
+            }
+            .logo 
+            {
+            text-align: center;
+            }
+           </style>
+      </head>
+    <body>
+        <div class="container">
+            <div class="logo">
+                 <img src="../ex51/img/Logo.gif"/>
+            </div>
+        <h2>Newborn Registration</h2>
+        <form>
+            <table>
+                <tr>
+                    <td>Date:</td>
+                    <td><input type="text" placeholder="mm/dd/yy"></td>
+                </tr>
+                <tr>
+                    <td>1) Infant's first name:</td>
+                    <td><input type="text"></td>
+                    <td>Last:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>2) Medical Record #:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>3) Date of birth:</td>
+                    <td><input type="text" placeholder="mm/dd/yy"></td>
+                </tr>
+                <tr>
+                    <td>4) Birth weight:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>5) APGAR score:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>6) Mother's first name:</td>
+                    <td><input type="text"></td>
+                    <td>Last:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>7) Father's first name:</td>
+                    <td><input type="text"></td>
+                    <td>Last:</td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>8) Physician (check all that apply):</td>
+                    <td colspan="3">
+                        <select multiple>
+                            <option>Dr. Warren Albert</option>
+                            <option>Dr. Maria Alvarez</option>
+                            <option>Dr. Karen Brinkman</option>
+                            <option>Dr. Micheal Kerry</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="buttons">
+                <button type="submit">Register</button>
+                <button type="reset">Cancel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

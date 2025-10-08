@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title> Tiêu đề trang </title>
+        <title> Customer - Đào Thảo Uyên </title>
         <script>
             function save_infor()
             {
@@ -24,7 +24,7 @@
                 }
 
                 email2=document.getElementById("email2")
-                email2.innterHTML="<font color='red'>" 
+                email2.innerHTML="<font color='red'>" 
                     +frm_customer_input.customer_email.value 
                     +"</font>"            }
             function open_help()
@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                     <td>Customer Name:</td>
-                    <td><input text="email" name="customer_name" id="customer_name"/></td>
+                    <td><input type="text" name="customer_name" id="customer_name"/></td>
                 </tr>
                 <tr>
                     <td>Customer Email:</td>
@@ -57,14 +57,14 @@
                         <input type="checkbox" value="VIP" id="customer_type" name="customer_type"/>
                         <label for="customer_type">Is VIP</label>
                     </td>
-                    <tr>
-                        <td>
-                            <button type="button" onclick="save_infor()">Save Infor</button>
-                            <button type="reset">Clear</button>
-                            |
-                            <button type="button">Help</button>
-                        </td>
-                    </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" onclick="save_infor()">Save Infor</button>
+                        <button type="reset">Clear</button>
+                        |
+                        <button type="button">Help</button>
+                    </td>
                 </tr>
             </table>
         </form>
