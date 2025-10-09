@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title> Product Order Form - Đào Thảo Uyên </title>
+        <style>
+            body 
+            {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                padding-top: 50px;
+                background-color: rgb(255, 229, 232);
+            }
+            .container
+            {
+                width: 80%;
+                margin: 50px auto;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(255, 134, 154, 0.5);
+                padding: 30px 40px;
+            }
+        </style>
+        <script>
+            window.onload = function() 
+            {
+            const params = new URLSearchParams(window.location.search);
+            
+            const products = 
+                {
+                'c112': { name: 'Mouse', price: 19.95 },
+                'b124': { name: 'Keyboard US', price: 29.95 },
+                'u125': { name: 'USB KingMax', price: 39.95 }
+                };
+
+            let grandTotal = 0;
+            let outputHtml = '';
+
+            const qty_c112 = parseInt(params.get('qty_c112')) || 0;
+            const qty_b124 = parseInt(params.get('qty_b124')) || 0;
+            const qty_u125 = parseInt(params.get('qty_u125')) || 0;
+
+            if (qty_c112 > 0) 
+                {
+                let subtotal = qty_c112 * products.c112.price;
+                grandTotal += subtotal;
+                outputHtml += `<p>${products.c112.name} (x${qty_c112}): <b>${subtotal.toFixed(2)}$</b></p>`;
+                }
+            if (qty_b124 > 0) 
+                {
+                let subtotal = qty_b124 * products.b124.price;
+                grandTotal += subtotal;
+                outputHtml += `<p>${products.b124.name} (x${qty_b124}): <b>${subtotal.toFixed(2)}$</b></p>`;
+                }
+            if (qty_u125 > 0)   
+                {
+                let subtotal = qty_u125 * products.u125.price;
+                grandTotal += subtotal;
+                outputHtml += `<p>${products.u125.name} (x${qty_u125}): <b>${subtotal.toFixed(2)}$</b></p>`;
+                }
+            outputHtml += `<p class="total"><b>Grand Total: ${grandTotal.toFixed(2)}$</b></p>`;
+
+            document.getElementById('results-container').innerHTML = outputHtml;
+            };
+        </script>
+            <body>
+                <div class="container">
+                    <h2 style="color:pink"><b>Order Summary</b></h2>
+                    <div id="results-container">
+                </div>
+                <a href="product_get.html" style="color:aliceblue; background-color: rgb(255, 162, 178); width: 70px;"><b>← Back to Order Page</b></a>
+                </div>
+            </body>
+    </head>
+</html> 

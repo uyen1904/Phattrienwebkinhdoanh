@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Contact Page - Đào Thảo Uyên</title>
+        <style>
+            body {
+                font-family: "Segoe UI", Arial, sans-serif;
+                background-color: #fff4f7;
+                margin: 0;
+                padding: 40px;
+            }
+
+            .result-box {
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(255, 134, 154, 0.5);
+                width: 50%;
+                margin: auto;
+                padding: 30px;
+            }
+
+            h2 {
+                color: rgb(255, 134, 154);
+                text-align: center;
+            }
+
+            p {
+                font-size: 16px;
+                color: #333;
+                margin: 8px 0;
+            }
+
+            .back-btn {
+                display: block;
+                width: 150px;
+                margin: 25px auto 0;
+                text-align: center;
+                background-color: rgb(255, 134, 154);
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                border-radius: 6px;
+                transition: 0.2s;
+            }
+
+            .back-btn:hover {
+                background-color: rgb(255, 100, 130);
+            }
+        </style>
+
+        <script>
+            function displayInfo() 
+            {
+                const params = new URLSearchParams(window.location.search);
+
+                // Lấy từng giá trị và xử lý trường hợp không có dữ liệu
+                const name = params.get("name") || "Chưa cung cấp";
+                const email = params.get("email") || "Chưa cung cấp";
+                const sendto = params.get("sendto") || "Chưa cung cấp";
+                const title = params.get("title") || "Chưa cung cấp";
+                const content = params.get("content") || "Chưa cung cấp";
+
+                // Hiển thị kết quả ra thẻ div có id="result"
+                document.getElementById("result").innerHTML = `
+                    <p><b>Name:</b> ${name}</p>
+                    <p><b>Email:</b> ${email}</p>
+                    <p><b>Send to:</b> ${sendto}</p>
+                    <p><b>Title:</b> ${title}</p>
+                    <p><b>Content</b> ${content}</p>
+                `;
+            }
+        </script>
+    </head>
+    <body onload="displayInfo()">
+        <div class="result-box">
+            <h2>Contact Information Received 💌</h2>
+            <div id="result"></div>
+            <a class="back-btn" href="contact_get.html">← Back to Contact Page</a>
+        </div>
+    </body>
+</html>

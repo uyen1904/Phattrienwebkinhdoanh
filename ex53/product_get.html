@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title> Product Order Form - Đào Thảo Uyên </title>
+        <style>
+            body 
+            {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                padding-top: 50px;
+                background-color: rgb(255, 229, 232);
+            }
+            .container
+            {
+                width: 80%;
+                margin: 50px auto;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(255, 134, 154, 0.5);
+                padding: 30px 40px;
+            }
+        </style>
+        <script>
+            function calculateTotal() 
+            {
+            const prices = {
+                            c112: 19.95,
+                            b124: 29.95,
+                            u125: 39.95
+                            };
+
+            let qty_c112 = parseInt(document.getElementById('qty_c112').value) || 0;
+            let qty_b124 = parseInt(document.getElementById('qty_b124').value) || 0;
+            let qty_u125 = parseInt(document.getElementById('qty_u125').value) || 0;
+
+            let total_c112 = qty_c112 * prices.c112;
+            let total_b124 = qty_b124 * prices.b124;
+            let total_u125 = qty_u125 * prices.u125;
+
+            document.getElementById('item_total_c112').value = total_c112.toFixed(2) + '$';
+            document.getElementById('item_total_b124').value = total_b124.toFixed(2) + '$';
+            document.getElementById('item_total_u125').value = total_u125.toFixed(2) + '$';
+        
+            let grandTotal = total_c112 + total_b124 + total_u125;
+            document.getElementById('grand_total').value = grandTotal.toFixed(2) + '$';
+            }
+
+                window.onload = calculateTotal;
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <form name="order_product" action="process_order.html" method="get">
+                <table>
+                    <tr>
+                        <td>Part Number</td>
+                        <td>Description</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Item table</td>
+                    </tr>
+                    <tr>
+                        <td>C112</td>
+                        <td>Mouse</td>
+                        <td>19.95$</td>
+                        <td>
+                            <input type="number" name="qty_c112" id="qty_c112" min="0" value="0" oninput="calculateTotal()"/>
+                        </td>
+                        <td>
+                            <input type="text" nam="item" id="item_total_c112"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B124</td>
+                        <td>Keyboard US</td>
+                        <td>29.95$</td>
+                        <td>
+                            <input type="number" name="qty_b124" id="qty_b124" min="0" value="0" oninput="calculateTotal()"/>
+                        </td>
+                        <td>
+                            <input type="text" nam="item" id="item_total_b124"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>U125</td>
+                        <td>USB KingMax</td>
+                        <td>39.95$</td>
+                        <td>
+                            <input type="number" name="qty_u125" id="qty_u125" min="0" value="0" oninput="calculateTotal()"/>
+                        </td>
+                        <td>
+                            <input type="text" nam="item" id="item_total_u125"/>
+                        </td>
+                    </tr>
+                </table>
+            </hr>
+            <div style="text-align: right; margin-top: 10px; font-size: 18px;">
+                <b>Total:</b>
+                <input type="text" id="grand_total" style="width: 120px; font-weight: bold;">
+            <div style="text-align: right;">
+                <button type="submit" class="submit-button" style="background-color: rgb(255, 159, 175); color: rgb(255, 255, 255); border-radius: 5px; border: none; width: 120px; height: 30px;">Sum</button>
+            </div>
+            </form>
+        </div>
+    </body>
+</html>

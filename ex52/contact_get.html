@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title> Contact GET - Đào Thảo Uyên </title>
+        <style>
+            .container 
+            {
+                width: 50%;
+                margin: 50px auto;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(255, 134, 154, 0.5);
+                padding: 30px 40px;
+            }
+            body
+            {
+                font-family: "Segoe UI", Arial, sans-serif;
+                background-image: url('../ex52/img/wallpaper\ cute\ kawaii.jpg');
+                background-attachment: fixed;
+            }
+        </style>
+        <script>
+            function send_infor()
+            {
+                var name=document.getElementById("name").value;
+                var email=document.getElementById("email").value;
+                var sendto=document.getElementById("sendto").value;
+                var title=document.getElementById("title").value;
+                var content=document.getElementById("content").value;
+            
+                var url="contact_page.html"
+                + "?name=" + encodeURIComponent(name)
+                + "&email=" + encodeURIComponent(email)
+                + "&sendto=" + encodeURIComponent(sendto)
+                + "&title=" + encodeURIComponent(title)
+                + "&content=" + encodeURIComponent(content);
+
+                if(confirm("Open our contact page?"))
+                {
+                    window.open(url,"_blank");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+          <h2 align="center"><b>Contact the editorial office</b></h2>
+           <form name="my_contact">
+            <table width="100%">
+                <tr>
+                    <td>Full name</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="name" name="name" id="name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Email</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="email" name="email" id="email"/>
+                    </td>
+                    <td>Send to</td>
+                    <td>
+                        <select id="sendto" name="sendto" style="width:100%;">
+                            <option>Editorial board</option>
+                            <option>News Department</option>
+                            <option>Board of Perspective</option>
+                            <option>World Board</option>
+                            <option>Business Department</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Title</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="title" id="title"/> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Content</td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <textarea name="content" id="content" rows="8" style="width:100%"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: left;">
+                        <button type="button" onclick="send_infor()" style="background-color: rgb(255, 134, 154); color: white; border-radius: 5px; border: none; width: 120px; height: 30px;"><b>Send</b></button>
+                    </td>
+                </tr>
+            </table>  
+        </form>
+       </div>
+    </body>
+</html>

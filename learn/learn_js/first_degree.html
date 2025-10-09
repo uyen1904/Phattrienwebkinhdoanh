@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title> First Degree - Đào Thảo Uyên </title>
+        <script type="text/javascript">
+            function do_solution()
+            {
+                a=eval(my_form.a_coefficient.value)
+                b=eval(my_form.b_coefficient.value)
+                result_td=document.getElementById("result_td")
+                result=""
+                if(a==0 && b==0)
+                {
+                    result="INF"
+                }
+                else if(a==0 && b!=0)
+                {
+                    result="No solution"
+                }
+                else
+                {
+                    result="x="+(-b/a)
+                }
+                result_td.innerHTML=`${result}`
+            }
+            function do_reset()
+            {
+                // (3 dòng này là chat gpt)document.my_form.a_coefficient.value = "";
+                //document.my_form.b_coefficient.value = "";
+                //document.getElementById("result_td").innerHTML = "";
+                document.getElementById("result_td").innerHTML=""
+                my_form.a_coefficient.focus() //2 dòng này khi bấm vào button clear nó sẽ buộc dẫn ta đến ô coefficient a
+                my_form.b_coefficient.focus()
+            }
+            function do_help() 
+            {
+                //(dòng này là chat gpt) alert("Giải phương trình bậc nhất dạng: ax + b = 0.\nNhập a và b, rồi nhấn Solution để xem kết quả.");
+                if(confirm("Open help?"))
+                {
+                    window.open("https://uel.edu.vn","_blank")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="my_form">
+            <table>
+                <tr>
+                    <td> A coeff:</td>
+                    <td>
+                        <input type="text" name="a_coefficient" id="a-coefficient"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td> B coeff:</td>
+                    <td>
+                        <input type="text" name="b_coefficient" id="b_coefficient"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Result:</td>
+                    <td id="result_td"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button type="button" onclick="do_solution()">Solution</button>
+                        <button type="button" onclick="do_reset()">Reset</button>
+                        <button type="button" onclick="do_help()">Help</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
