@@ -1,0 +1,187 @@
+<html>
+    <head>
+        <title> String Processing Functions </title>
+        <style>
+            /* --- CSS ĐÃ ĐƯỢC CHỈNH SỬA ĐỂ GIỐNG HÌNH 2 --- */
+            body { 
+                font-family: sans-serif; 
+                background-color: #f0f0f0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+            .container { 
+                max-width: 800px; 
+                padding: 20px; 
+                background-color: white; 
+                border: 1px solid #aaa; 
+            }
+            table { 
+                width: 100%; 
+                border-collapse: collapse; 
+            }
+            td { 
+                padding: 5px; 
+                /* Thêm border cho các ô để tạo khung giống hình */
+                border: 1px solid #ccc;
+            }
+            textarea { 
+                width: 100%; 
+                height: 100px; 
+                box-sizing: border-box; 
+                resize: vertical; 
+                border: 1px solid black;
+            }
+            button {
+                width: 100%;
+                padding: 8px;
+                box-sizing: border-box;
+                border: 1px solid #aaa;
+                background-color: #f0f0f0;
+                cursor: pointer;
+            }
+            h2 { 
+                margin-top: 0; 
+                font-size: 2em; /* Phóng to tiêu đề */
+                font-family: 'Times New Roman', Times, serif;
+            }
+            strong {
+                font-size: 1.2em; /* Phóng to Input/Result label */
+            }
+            </style>
+        <script type="text/javascript">
+            function getInputString()
+            {
+                return document.getElementById("inputData").value;
+            }
+            function showResult(result)
+            {
+                document.getElementById("resultData").value=result;
+            }
+            function enter_data() 
+            {
+                const sampleText = "Hi, my name is Yune. Nice to meet you~!";
+                document.getElementById('inputData').value = sampleText;
+            }
+            function displayUppercase() 
+            {
+                const str = getInputString();
+                showResult(str.toUpperCase());
+            }
+            function displayLowercase() 
+            {
+                const str = getInputString();
+                showResult(str.toLowerCase());
+            }
+            function countUppercase() 
+            {
+                const str = getInputString();
+                let count = 0;
+                for (let i = 0; i < str.length; i++) 
+                {
+                    const char = str[i];
+                if (char === char.toUpperCase() && char !== char.toLowerCase())     
+                {
+                    count++;
+                }
+                }
+            showResult("Number of uppercase characters: " + count);
+            }
+            function countLowercase()   
+            {
+                const str = getInputString();
+                let count = 0;
+                for (let i = 0; i < str.length; i++) 
+                {
+                    const char = str[i];
+                if (char === char.toLowerCase() && char !== char.toUpperCase()) {
+                    count++;
+                }
+                }
+            showResult("Number of lowercase characters: " + count);
+            }
+            function outputOneWordPerLine() 
+            {
+                const str = getInputString();
+                const words = str.trim().split(/\s+/); 
+                showResult(words.join('\n'));
+            }
+            function word_count()   
+            {
+                const str = getInputString();
+                if (str.trim() === '')  
+                {
+                    showResult("Word count: 0");
+                    return;
+                }
+                const words = str.trim().split(/\s+/);
+                showResult("Word count: " + words.length);
+            }
+            function printVowelsandConsonants()     
+            {
+                const str = getInputString();
+                const vowelsList = "aeiouAEIOU";
+                let vowelsFound = [];
+                let consonantsFound = [];
+
+                for (let i = 0; i < str.length; i++) 
+                {
+                    const char = str[i];
+                    if ( (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') ) 
+                    {
+                        if (vowelsList.includes(char))      
+                        {
+                            vowelsFound.push(char);
+                        }   
+                        else 
+                        {
+                        consonantsFound.push(char);
+                        }
+                    }
+                }
+                const result = "Vowels: " + vowelsFound.join(', ') + "\n\n" +
+                                "Consonants: " + consonantsFound.join(', ');
+                showResult(result);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Using String Processing Functions</h2>
+            <table width="100%" border="1">
+                <tr>
+                    <td><strong>Input Data:</strong></td>
+                    <td><strong>Result:</strong></td>
+                </tr>
+                <tr>
+                    <td><textarea id="inputData"></textarea></td>
+                    <td><textarea id="resultData" readonly></textarea></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="enter_data()">enter Data</button></td>
+                    <td><button type="button" onclick="countUppercase()">count the number of uppercase characters</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="displayUppercase()">uppercase display</button></td>
+                    <td><button type="button" onclick="outputOneWordPerLine()">output one word per line</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="displayLowercase()">lowercase display</button></td>
+                    <td><button type="button" onclick="word_count()">word count</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" onclick="countLowercase()">count the number of lowercase characters</button></td>
+                    <td><button type="button" onclick="printVowelsandConsonants()">print vowels, consonants</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2", width="100%" align="center">
+                        <button type="button" onclick="window.open('https://www.w3schools.com/js/js_string_methods.asp', 'blank')">
+                         W3C's String Processing Website
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

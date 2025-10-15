@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <title> Math Function - Đào Thảo Uyên </title>
+        <style>
+        body 
+        { 
+            font-family: sans-serif; 
+        }
+        table 
+        { 
+            border-collapse: collapse; 
+        }
+        td 
+        { 
+            padding: 5px; 
+        }
+        input[type="text"] 
+        { 
+            width: 100%; 
+            box-sizing: border-box; 
+        }
+        button 
+        {
+            border: none; 
+            margin-right: 5px; 
+            padding: 5px 10px; 
+            border-radius: 8px; 
+            box-shadow: 0 5 10 rgba(0,0,0,0.2);
+        }
+
+    </style>
+        <script type="text/javascript">
+            function getNumbers()
+            {
+                const a=parseFloat(document.getElementById("input_a").value)
+                const b=parseFloat(document.getElementById("input_b").value)
+                const c=parseFloat(document.getElementById("input_c").value)
+                return {a,b,c};
+            }
+            function showResult(resultValue)
+            {
+                document.getElementById("result_call").innerText=resultValue;
+            }
+            function calculate_max()
+            {
+                const numbers=getNumbers();
+                const result=Math.max(numbers.a,numbers.b,numbers.c);
+                showResult(result);
+            }
+            function calculate_min()
+            {
+                const numbers=getNumbers();
+                const result=Math.min(numbers.a,numbers.b,numbers.c);
+                showResult(result);
+            }
+            function calculate_sin()
+            {
+                const numbers=getNumbers();
+                const radians=numbers.a*(Math.PI/180);
+                const result=Math.sin(radians);
+                showResult(result);
+            }
+            function calculate_cos()
+            {
+                const numbers=getNumbers();
+                const radians=numbers.a*(Math.PI/180);
+                const result=Math.cos(radians);
+                showResult(result);
+            }
+            function calculate_power()
+            {
+                const numbers=getNumbers();
+                const result=Math.pow(numbers.a,numbers.b);
+                showResult(result);
+            }
+        </script>
+    </head>
+    <body>
+        <form name="calculator_form">
+            <table border="1">
+                <tr>
+                    <td>a:</td>
+                    <td>
+                        <input type="text" id="input_a" value="20"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>b:</td>
+                    <td>
+                        <input type="text" id="input_b" value="45"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>c:</td>
+                    <td>
+                        <input type="text" id="input_c" value="80"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Result:</td>
+                    <td id="result_call"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" onclick="calculate_max()">MAX</button>
+                        <button type="button" onclick="calculate_min()">MIN</button>
+                        <button type="button" onclick="calculate_sin()">sin(a)</button>
+                        <button type="button" onclick="calculate_cos()">cos(a)</button>
+                        <button type="button" onclick="calculate_power()">a^b</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

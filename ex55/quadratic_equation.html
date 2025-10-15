@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <title> Quadratic Equation - Đào Thảo Uyên </title>
+        <style>
+        body 
+        { 
+            font-family: sans-serif; 
+        }
+        table 
+        { 
+            border-collapse: collapse; 
+        }
+        td 
+        { 
+            padding: 5px; 
+        }
+        input[type="text"] 
+        { 
+            width: 100%; 
+            box-sizing: border-box; 
+        }
+        button 
+        {
+            border-color: pink; 
+            margin-right: 5px; 
+            padding: 5px 10px; 
+            border-radius: 8px; 
+            box-shadow: 0 5 10 rgba(0,0,0,0.2);
+        }
+        .caption
+        {
+            background-color: rgb(179, 231, 248);
+            font-weight: bold;
+        }
+
+    </style>
+        <script type="text/javascript">
+            function getNumbers()
+            {
+                const a=parseFloat(document.getElementById("input_a").value)
+                const b=parseFloat(document.getElementById("input_b").value)
+                const c=parseFloat(document.getElementById("input_c").value)
+                return {a,b,c};
+            }
+            function showResult(resultValue)
+            {
+                document.getElementById("result_call").innerText=resultValue;
+            }
+            function find_solution()
+            {
+                const numbers = getNumbers();
+                const a = numbers.a;
+                const b = numbers.b;
+                const c = numbers.c;
+                let resultText = '';
+
+                if (isNaN(a) || isNaN(b) || isNaN(c)) 
+                {
+                    showResult("Enter a, b, c.");
+                    return;
+                }
+
+                if (a === 0) 
+                {
+                    if (b === 0) 
+                    {
+                        resultText = (c === 0) ? "Infinitely many solutions" : "No solution";
+                    } 
+                    else 
+                    {
+                        let x = -c / b;
+                        resultText = `One solution: x = ${x}`;
+                    }
+                    showResult(resultText);
+                    return;
+                }
+
+                const delta = (b * b) - (4 * a * c);
+
+                if (delta > 0) 
+                {
+                    const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                    const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                    resultText = `x1 = ${x1} ; x2 = ${x2}`;
+                } 
+                else if (delta === 0) 
+                {
+                    const x = -b / (2 * a);
+                    resultText = `Double solution: x1 = x2 = ${x}`;
+                } 
+                else 
+                {
+                    resultText = "No real solution";
+                }
+
+                showResult(resultText);
+            }
+            function clear_input()
+            {
+                document.getElementById("input_a").value="";
+                document.getElementById("input_b").value="";
+                document.getElementById("input_c").value="";
+                showResult("");
+            }
+        </script>
+    </head>
+    <body>
+        <form name="calculator_form" onsubmit="return false">
+            <table border="1">
+                <caption style="background-color: rgb(148, 210, 255);">The quadratic equation</caption>
+                <tbody>
+                <tr>
+                    <td>a:</td>
+                    <td>
+                        <input type="text" id="input_a" value="2"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>b:</td>
+                    <td>
+                        <input type="text" id="input_b" value="-8"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>c:</td>
+                    <td>
+                        <input type="text" id="input_c" value="9"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Result:</td>
+                    <td id="result_call"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" onclick="find_solution()">Find Solution</button>
+                        <button type="button" onclick="clear_input()">Clear</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>
