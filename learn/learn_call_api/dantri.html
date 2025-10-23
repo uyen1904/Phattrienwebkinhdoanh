@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title> Tiêu đề trang </title>
+    </head>
+    <body>
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Buy</th>
+                    <th>Sell</th>
+                </tr>
+            </thead>
+            <tbody id="gold_tbody">
+                
+            </tbody>
+        <script type="text/javascript">
+            var api_dantri = "https://webapi.dantri.com.vn/misc"
+        </script>
+
+        <script type="text/javascript">
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", api_dantri, true);
+            xhr.send();
+            xhr.onreadystatechange = function()
+            {
+                if (xhr.readyState == 4 && xhr.status == 200)
+                {
+                    var danTriJson = xhr.responseText
+                    var danTriObject = JSON.parse(danTriJson)
+                    display_gold(danTriObject)
+                }
+                else if (xhr.readyState == 4)
+                {
+                    //handling when data can't be loaded
+                    console.log("Error: " + xhr.status)
+                }
+            }
+        </script>
+
+        <script type="text/javascript">
+            function display_gold(danTriObject)
+            {
+                var gold_tbody = document.getElementById("gold_tbody")
+                
+                if(danTriObject && danTriObject.gold && danTriObject.gold.length > 0)
+                {
+                    for(var i = 0; i < danTriObject.gold.length; i++)
+                    {
+                        var tr = document.createElement("tr")
+                        var td_city = document.createElement("td")
+                        var td_buy = document.createElement("td")
+                        var td_sell = document.createElement("td")
+                        var gold = danTriObject.gold[i]
+                        
+                        td_city.innerText = gold.name
+                        td_buy.innerText = gold.buy
+                        td_sell.innerText = gold.sell
+
+                        tr.appendChild(td_city)
+                        tr.appendChild(td_buy)
+                        tr.appendChild(td_sell)
+                        gold_tbody.appendChild(tr)
+                    }
+                }
+                else
+                {
+                    console.log("No gold data found")
+                }
+            }
+        </script>
+    </body>
+</html>

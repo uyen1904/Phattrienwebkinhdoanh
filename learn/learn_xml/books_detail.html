@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title> Tiêu đề trang </title>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>Title:</td>
+                <td id="id_title"></td>
+            </tr>
+            <tr>
+                <td>Author:</td>
+                <td id="id_author"></td>
+            </tr>
+            <tr>
+                <td>Year:</td>
+                <td id="id_year"></td>
+            </tr>       
+            <tr>
+                <td>Cover:</td>
+                <td>
+                    <img id="img_cover" width="250" height="250">
+                </td>
+        </table>
+        <script type="text/javascript">
+            jsonString=localStorage.getItem("selected_book")
+            jsonObject=JSON.parse(jsonString)
+            id_title.innerText=jsonObject.title
+            id_author.innerText=jsonObject.author
+            id_year.innerText=jsonObject.year
+            img_cover.src="images/"+jsonObject.cover
+        </script>
+    </body>
+</html>

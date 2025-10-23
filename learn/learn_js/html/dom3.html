@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> List and Table - Đào Thảo Uyên </title>
+        <script type="text/javascript">
+            dataset=[
+                {   ID: "P01",
+                    Name: "Juice",
+                    Quantity: 20,
+                    Price: 15,
+                    Photo: "z7016494969327_a461eea0d2b4170ef1a282b429f3631f.jpg"
+                },
+                {
+                    ID: "P02",
+                    Name: "Milk",
+                    Quantity: 10,
+                    Price: 12,
+                    Photo: "z7016494969351_72cd6d05f79db03cf6f94b8195bbcb02.jpg"
+                },
+                {
+                    ID: "P03",
+                    Name: "Bread",
+                    Quantity: 25,
+                    Price: 8,
+                    Photo: "z7016495034493_f94a31923d0e2973d0c96d4a7bfec013.jpg"
+                },
+                {
+                    ID: "P04",
+                    Name: "Butter",
+                    Quantity: 30,
+                    Price: 20,
+                    Photo: "z7016495034514_22a713a61ece404682b18a81274714eb.jpg"
+                },
+                {
+                    ID: "P05",
+                    Name: "Egg",
+                    Quantity: 50,
+                    Price: 2,
+                    Photo: "z7016495034534_9689778de3cbc1b862f8aa9ec517966c.jpg"
+                }
+            ]
+        </script>
+    </head>
+<body>
+    <table border="1">
+        <caption> List of Products: </caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Photo</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="product_tbody">
+
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            product_tbody = document.getElementById("product_tbody");
+            console.log("Dataset length:", dataset.length);
+            console.log("Dataset:", dataset);
+            for (let i=0; i<dataset.length; i++)
+            {
+                item=dataset[i];
+                //step 1:create a tr
+                row=document.createElement("tr");
+                td_id=document.createElement("td");
+                td_name=document.createElement("td");
+                td_quantity=document.createElement("td");
+                td_price=document.createElement("td");
+                td_photo=document.createElement("td");
+                td_action=document.createElement("td");
+                //step 2: assign value for item html element:
+                td_id.innerText=item.ID;
+                td_name.innerText=item.Name;
+                td_quantity.innerText=item.Quantity;
+                td_price.innerText=item.Price;
+
+                img=document.createElement("img");
+                let imgSrc = "../images/"+item.Photo;
+                console.log("Loading image:", imgSrc);
+                img.setAttribute("src", imgSrc);
+                img.setAttribute("width", "100px");
+                img.setAttribute("height", "150px");
+                img.setAttribute("title", "Click here to view detail");
+                img.onerror = function() {
+                    console.error("Error loading image:", imgSrc);
+                };
+                img.onload = function() {
+                    console.log("Image loaded successfully:", imgSrc);
+                };
+                td_photo.appendChild(img);
+
+                ic_detail=document.createElement("img");
+                ic_detail.setAttribute("src", "../images/detail.png");
+                ic_detail.setAttribute("title", "view detail");
+                ic_detail.setAttribute("width", "20px");
+                ic_detail.setAttribute("height", "20px");
+                ic_detail.setAttribute("style","cursor:pointer; margin-right: 5px;");
+
+                ic_detail.item_product=item
+                ic_detail.onclick=function()
+                {
+                 jsonstring=JSON.stringify(this.item_product)
+                 //use locastorage for saving:
+                 localStorage.setItem("selected_product", jsonstring)
+                 //open new tab for detail.html
+                 window.open("detail.html", "_blank");
+                }
+                td_action.appendChild(ic_detail);
+
+                ic_edit=document.createElement("img");
+                ic_edit.setAttribute("src", "../images/edit.png");
+                ic_edit.setAttribute("title", "edit item");
+                ic_edit.setAttribute("width", "20px");
+                ic_edit.setAttribute("height", "20px");
+                ic_edit.setAttribute("style","cursor:pointer; margin-right: 5px;");
+
+                td_action.appendChild(ic_edit);
+
+                ic_delete=document.createElement("img");
+                ic_delete.setAttribute("src", "../images/delete.png");
+                ic_delete.setAttribute("title", "delete item");
+                ic_delete.setAttribute("width", "20px");
+                ic_delete.setAttribute("height", "20px");
+                ic_delete.setAttribute("style","cursor:pointer;");
+
+                //create an attribute for ic_delete:
+                ic_delete.my_row_parent=row
+                //adding an event for ic_delete:
+                ic_delete.onclick=function()
+                {
+                    if(confirm("Are you sure to delete this item?"))
+                    {
+                        parent_row=this.my_row_parent;
+                        alert("Deleting item: "+parent_row.childNodes[1].innerText);
+                        product_tbody.removeChild(parent_row);
+                    }
+                }
+                td_action.appendChild(ic_delete);
+                //step 3: attach td(s) into tr(row):
+                row.appendChild(td_id);
+                row.appendChild(td_name);
+                row.appendChild(td_quantity);
+                row.appendChild(td_price);
+                row.appendChild(td_photo);
+                row.appendChild(td_action);
+                //step 4: attach tr(row) into tbody:
+                product_tbody.appendChild(row);
+            }
+        </script>
+    </table>
+</body>
+</html>
